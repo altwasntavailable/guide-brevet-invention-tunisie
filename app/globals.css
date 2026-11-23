@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 4.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  @apply bg-sand-50 text-ink-900 antialiased;
+}
+
+::selection {
+  @apply bg-brand-200 text-ink-950;
+}
+
+/* Focus visible cohérent sur tout le site */
+:focus-visible {
+  outline: 3px solid theme("colors.brand.500");
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+.skip-link {
+  @apply absolute left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-ink-950 px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0;
+}
+
+/* Contenu éditorial : listes et paragraphes longs */
+.prose-guide {
+  @apply text-[1.02rem] leading-8 text-ink-700;
+}
+
+.prose-guide p {
+  @apply my-4;
+}
+
+.prose-guide strong {
+  @apply font-semibold text-ink-900;
+}
+
+.prose-guide ul {
+  @apply my-4 list-disc space-y-2 pl-6;
+}
+
+.prose-guide ol {
+  @apply my-4 list-decimal space-y-2 pl-6;
+}
+
+.prose-guide a {
+  @apply font-medium text-brand-700 underline decoration-brand-300 underline-offset-4 hover:text-brand-800;
+}
+
+.prose-guide h3 {
+  @apply mt-8 text-xl font-semibold tracking-tight text-ink-900;
+}
+
+.prose-guide h4 {
+  @apply mt-6 text-lg font-semibold text-ink-900;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Impression de la checklist */
+@media print {
+  header,
+  footer,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .print-break-avoid {
+    break-inside: avoid;
+  }
+}

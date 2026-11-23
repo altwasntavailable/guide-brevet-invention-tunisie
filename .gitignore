@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Production
+build/
+dist/
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# Environnement
+.env
+.env*.local
+
+# Système
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PDF et fichiers de travail extraits
+*.pdf.txt
+page*.txt
+p12_*.txt
+loi_clean.txt
+loi_wrap.txt
+brevet_clean.txt
+brevet_wrap.txt
+extract.py
+clean.py
+wrap.py
+pdfplumber_extract.py
+crop.py
+colsplit.py
+words.py

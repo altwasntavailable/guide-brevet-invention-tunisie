@@ -1,0 +1,46 @@
+Tu es développeur web senior (Next.js, Tailwind, Vercel) et expert en création d'entreprise.
+
+CONTEXTE
+Je te joins 2 fichiers PDF qui contiennent TOUT ce qu'il faut savoir pour ouvrir/créer une entreprise (statuts juridiques, formalités, documents, coûts, délais, obligations, étapes, etc.).
+Ces PDFs sont la SEULE source de vérité. Tu ne dois RIEN inventer, ni ajouter d'informations qui n'y figurent pas.
+
+OBJECTIF
+Concevoir et développer un site web complet, EN FRANÇAIS, qui sert de guide pratique pour les personnes souhaitant créer leur entreprise. Le site doit couvrir 100% du contenu des 2 PDFs, sans exception.
+
+ÉTAPE 1 – ANALYSE DES PDFs
+1. Lis intégralement les 2 PDFs.
+2. Extrais TOUT : sections, sous-sections, étapes, listes, tableaux, montants, délais, documents requis, conseils, avertissements.
+3. Propose un plan du site (arborescence) avec une correspondance claire : contenu du PDF → page du site.
+   Exemple de structure : Accueil / Guide étape par étape / Choisir son statut juridique / Formalités et documents / Coûts et délais / Obligations après création / FAQ / Contacts utiles.
+   Adapte cette structure au contenu réel des PDFs.
+
+ÉTAPE 2 – DESIGN ET DÉVELOPPEMENT
+- Stack : Next.js (App Router) + Tailwind CSS, optimisé pour un déploiement Vercel.
+- Site 100% en français, responsive (mobile/tablette/desktop), rapide, accessible (contrastes, navigation clavier, aria-labels).
+- Design moderne, professionnel et rassurant : palette sobre, typographie lisible, icônes, barre de progression pour le "parcours de création", sommaire latéral, boutons d'action clairs.
+- Chaque page doit contenir le contenu RÉEL extrait des PDFs. Aucun texte fictif, aucun "lorem ipsum", aucun placeholder.
+- Si une info des PDFs est ambiguë, recopie-la telle quelle sans la modifier.
+- Ajoute une FAQ construite uniquement à partir des questions implicites/explicites des PDFs.
+
+ÉTAPE 3 – MISE EN LIGNE (GitHub + Vercel)
+Tu ne peux pas pousser le code toi-même : fournis donc tout ce qu'il faut pour que je le fasse en quelques minutes.
+1. Donne les commandes exactes pour : initialiser le repo git, créer le repo GitHub, pousser le code.
+2. Explique pas à pas l'import du repo sur Vercel et le déploiement (le site obtiendra une URL .vercel.app).
+3. Explique comment brancher un nom de domaine personnalisé.
+4. Fournis un README.md complet (description, structure, installation locale, déploiement).
+5. Fournis un fichier vercel.json si nécessaire, et une GitHub Action (.github/workflows/deploy.yml) pour le déploiement automatique à chaque push.
+
+CONTRAINTES
+- Tout le contenu et l'interface en FRANÇAIS.
+- Ne rien inventer : uniquement les informations des PDFs.
+- Code propre, commenté, prêt à copier-coller.
+- Nomme chaque fichier avec son chemin exact (ex. app/page.tsx, components/Header.tsx, package.json…).
+
+LIVRABLES, DANS CET ORDRE
+1. Plan du site + mapping contenu PDF → pages
+2. Arborescence complète des fichiers
+3. Code complet de chaque fichier (un par bloc, avec le chemin)
+4. README.md + instructions GitHub/Vercel + GitHub Action
+5. Checklist finale pour vérifier que TOUT le contenu des PDFs est présent sur le site
+
+Commence par me confirmer que tu as bien lu les 2 PDFs et liste les grandes sections que tu y as trouvées.
