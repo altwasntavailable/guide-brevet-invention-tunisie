@@ -45,3 +45,6 @@ pdfplumber_extract.py
 crop.py
 colsplit.py
 words.py
+
+.vercel
+.env*
