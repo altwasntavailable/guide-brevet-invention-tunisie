@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://guide-brevet-tunisie.vercel.app"),
+  metadataBase: new URL("https://guide-brevet-invention-tunisie.vercel.app"),
   title: {
     default: "Guide du brevet d'invention en Tunisie",
     template: "%s | Guide du brevet d'invention",

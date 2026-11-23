@@ -6,6 +6,15 @@ les deux PDF fournis en un guide pratique :
 1. le guide **« Le brevet d'invention »** (INNORPI) ;
 2. la **loi n° 2000-84 du 24 août 2000** relative aux brevets d'invention.
 
+## Liens
+
+- **Site en ligne :** <https://guide-brevet-invention-tunisie.vercel.app>
+- **Dépôt GitHub :** <https://github.com/altwasntavailable/guide-brevet-invention-tunisie>
+- **Archive du dépôt :** <https://github.com/altwasntavailable/guide-brevet-invention-tunisie/archive/refs/heads/main.zip>
+
+Le déploiement Vercel est automatisé par GitHub Actions à chaque push sur `main`
+(`.github/workflows/deploy.yml`).
+
 > **Remarque importante sur le brief initial**
 >
 > Le fichier `message.txt` demandait un guide de création d'entreprise. Or les deux PDF présents
@@ -100,46 +109,36 @@ npm run lint    # vérification ESLint
 
 ## Déploiement sur Vercel
 
-### 1. Initialiser Git et pousser sur GitHub
+Le projet est déjà déployé :
+
+- **Production :** <https://guide-brevet-invention-tunisie.vercel.app>
+- **GitHub :** <https://github.com/altwasntavailable/guide-brevet-invention-tunisie>
+
+### Redéployer après une modification
+
+```bash
+git add .
+git commit -m "Description de la modification"
+git push
+```
+
+Le workflow GitHub Actions `.github/workflows/deploy.yml` compile le projet et le déploie en
+production. Les secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID` et `VERCEL_PROJECT_ID` sont configurés
+dans le dépôt GitHub.
+
+### Recréer le déploiement depuis zéro
 
 ```bash
 git init
 git add .
 git commit -m "Guide du brevet d'invention en Tunisie"
 git branch -M main
+gh repo create guide-brevet-invention-tunisie --public --source=. --remote=origin --push
 ```
 
-Avec GitHub CLI (recommandé) :
-
-```bash
-gh repo create guide-brevet-tunisie --public --source=. --remote=origin --push
-```
-
-Sans GitHub CLI :
-
-1. créez un dépôt vide sur <https://github.com/new> ;
-2. puis exécutez :
-
-```bash
-git remote add origin https://github.com/VOTRE_COMPTE/guide-brevet-tunisie.git
-git push -u origin main
-```
-
-### 2. Importer le dépôt sur Vercel
-
-1. Connectez-vous à <https://vercel.com> avec votre compte GitHub.
-2. Cliquez sur **Add New… → Project**.
-3. Sélectionnez le dépôt `guide-brevet-tunisie`, puis **Import**.
-4. Vercel détecte automatiquement **Next.js** :
-   - Framework Preset : `Next.js` ;
-   - Build Command : `npm run build` ;
-   - Output Directory : `.next` ;
-   - Install Command : `npm install`.
-5. Aucune variable d'environnement n'est nécessaire.
-6. Cliquez sur **Deploy**. Le site est publié sur une URL du type
-   `https://guide-brevet-tunisie.vercel.app`.
-
-Chaque push sur `main` redéploie automatiquement le site via l'intégration Git de Vercel.
+Puis, sur <https://vercel.com>, cliquez sur **Add New… → Project**, importez le dépôt et laissez
+Vercel détecter **Next.js** (Build Command `npm run build`, Output Directory `.next`,
+Install Command `npm install`). Aucune variable d'environnement n'est nécessaire.
 
 ### 3. Brancher un nom de domaine personnalisé
 
@@ -153,12 +152,15 @@ Chaque push sur `main` redéploie automatiquement le site via l'intégration Git
 5. Vercel génère automatiquement le certificat HTTPS. Choisissez le domaine principal et
    configurez la redirection de `www` vers le domaine racine (ou l'inverse).
 
-### 4. Déploiement automatique via GitHub Actions (optionnel)
+### 4. Déploiement automatique via GitHub Actions
 
-L'intégration Git de Vercel suffit dans la plupart des cas. Le workflow
-`.github/workflows/deploy.yml` permet aussi de déployer depuis GitHub Actions.
+Le workflow `.github/workflows/deploy.yml` est déjà configuré. Les secrets du dépôt sont :
 
-1. Récupérez les identifiants du projet :
+- `VERCEL_TOKEN` : jeton d'accès Vercel ;
+- `VERCEL_ORG_ID` : identifiant du compte Vercel ;
+- `VERCEL_PROJECT_ID` : identifiant du projet Vercel.
+
+Pour recréer cette configuration sur un autre dépôt :
 
 ```bash
 npx vercel login
@@ -166,16 +168,9 @@ npx vercel link
 cat .vercel/project.json
 ```
 
-2. Dans GitHub : **Settings → Secrets and variables → Actions → New repository secret**.
-   Ajoutez :
-   - `VERCEL_TOKEN` : jeton créé sur <https://vercel.com/account/tokens> ;
-   - `VERCEL_ORG_ID` : valeur `orgId` de `.vercel/project.json` ;
-   - `VERCEL_PROJECT_ID` : valeur `projectId` de `.vercel/project.json`.
-
-3. Poussez sur `main`. Le workflow compile puis déploie en production.
-
-> Si vous activez à la fois l'intégration Git Vercel et ce workflow, vous aurez deux déploiements
-> par push. Dans ce cas, désactivez l'un des deux mécanismes.
+Puis dans GitHub : **Settings → Secrets and variables → Actions → New repository secret**,
+ajoutez les trois secrets ci-dessus. Chaque push sur `main` compile et déploie automatiquement le
+site en production.
 
 ## Accessibilité et qualité
 
